@@ -96,7 +96,7 @@
                (shell-quote-argument
                 (s-join "|" (go-gen-test-functions (region-beginning) (region-end))))
                (buffer-file-name))
-     (format "%s %s %s" go-gen-test-executable
+     (format "%s %s %s"
              (go-gen-test-base-command)
              go-gen-test-default-functions
              (buffer-file-name)))
