@@ -1,4 +1,4 @@
-;;; go-gen-test.el --- Generate tests for go code    -*- lexical-binding: t; -*-
+;;; go-gen-test.el --- Generate tests for go code with gotests    -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2017 Sergey Kostyaev, all rights reserved.
 
@@ -88,7 +88,11 @@
 
 ;;;###autoload
 (defun go-gen-test-dwim ()
-  "Generate tests for functions you want to."
+  "Generate tests for functions you want to.
+If you call this function while region is active it extracts
+functions defined in this region and generate tests for it.
+Else it generates tests for exported or all functions.
+You can customize this behavior with `go-gen-test-default-functions'."
   (interactive)
   (save-buffer)
   (shell-command
