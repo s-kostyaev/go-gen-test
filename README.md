@@ -26,4 +26,4 @@ Generate tests for all exported functions.
 
 ### Customization
 
-<kbd>M-x</kbd> `customize-group` `go-gen-test` <kbd>Enter</kbd>
+<kbd>M-x</kbd> `customize-group` <kbd>Enter</kbd> `go-gen-test` <kbd>Enter</kbd>
