@@ -101,11 +101,11 @@ You can customize this behavior with `go-gen-test-default-functions'."
                (go-gen-test-base-command)
                (shell-quote-argument
                 (s-join "|" (go-gen-test-functions (region-beginning) (region-end))))
-               (buffer-file-name))
+               (shell-quote-argument (buffer-file-name)))
      (format "%s %s %s"
              (go-gen-test-base-command)
              go-gen-test-default-functions
-             (buffer-file-name)))
+             (shell-quote-argument (buffer-file-name))))
    "*gotests*")
   (deactivate-mark)
   (if (s-suffix-p "_test.go" (buffer-file-name))
@@ -121,7 +121,7 @@ You can customize this behavior with `go-gen-test-default-functions'."
   (shell-command
    (format "%s -all %s"
            (go-gen-test-base-command)
-           (buffer-file-name))
+           (shell-quote-argument (buffer-file-name)))
    "*gotests*")
   (if (s-suffix-p "_test.go" (buffer-file-name))
       (revert-buffer nil t)
@@ -136,7 +136,7 @@ You can customize this behavior with `go-gen-test-default-functions'."
   (shell-command
    (format "%s -exported %s"
            (go-gen-test-base-command)
-           (buffer-file-name))
+           (shell-quote-argument (buffer-file-name)))
    "*gotests*")
   (if (s-suffix-p "_test.go" (buffer-file-name))
       (revert-buffer nil t)
