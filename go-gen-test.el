@@ -28,6 +28,7 @@
 
 ;;; Code:
 (require 's)
+(require 'simple)
 
 (defgroup go-gen-test nil
   :prefix "go-gen-test-"
@@ -96,7 +97,7 @@ You can customize this behavior with `go-gen-test-default-functions'."
   (interactive)
   (save-buffer)
   (shell-command
-   (if (region-active-p)
+   (if (use-region-p)
        (format "%s -only %s %s"
                (go-gen-test-base-command)
                (shell-quote-argument
