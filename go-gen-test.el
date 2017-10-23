@@ -31,9 +31,9 @@
 (require 'simple)
 
 (defgroup go-gen-test nil
+  "Generating tests for golang functions options."
   :prefix "go-gen-test-"
-  :group 'go
-  "Generating tests for golang functions options.")
+  :group 'go)
 
 (defcustom go-gen-test-default-functions "-exported"
   "Default functions which tests will be generated for."
