@@ -65,6 +65,11 @@
           (const :tag "In other window" 'find-file-other-window)
           (const :tag "In other frame" 'find-file-other-frame)))
 
+(defcustom go-gen-test-use-testify nil
+  "Use testify in generated tests."
+  :group 'go-gen-test
+  :type 'boolean)
+
 (defconst go-gen-test-function-regexp "^func \\(([^()]*)\\)?\s*\\(\[A-Za-z0-9_]+\\)\s*\\(([^()]*)\\)"
   "Regexp for extract go functions from selected region.")
 
@@ -80,9 +85,10 @@
 
 (defun go-gen-test-base-command ()
   "Base generating command."
-  (format "%s%s%s -w"
+  (format "%s%s%s%s -w"
           go-gen-test-executable
           (if go-gen-test-enable-subtests "" " -nosubtests")
+	  (if go-gen-test-use-testify " -template testify" "")
           (if go-gen-test-exclude
               (format " -excl %s"(s-join "|" go-gen-test-exclude))
             "")))
