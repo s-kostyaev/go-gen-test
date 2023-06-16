@@ -94,8 +94,7 @@
 
 ;;;###autoload
 (defun go-gen-test-dwim (&optional start end)
-  "(go-gen-test-dwim &optional START END)
-Generate tests for functions you want to.
+  "Generate tests for functions you want to.
 If you call this function while region is active it extracts
 functions defined between START and END and generate tests for it.
 Else it generates tests for exported or all functions.
@@ -122,8 +121,7 @@ You can customize this behavior with `go-gen-test-default-functions'."
 
 ;;;###autoload
 (defun go-gen-test-all ()
-  "(go-gen-test-all)
-Generate tests for all functions."
+  "Generate tests for all functions."
   (interactive)
   (save-buffer)
   (shell-command
@@ -138,8 +136,7 @@ Generate tests for all functions."
 
 ;;;###autoload
 (defun go-gen-test-exported ()
-  "(go-gen-test-exported)
-Generate tests for all exported functions."
+  "Generate tests for all exported functions."
   (interactive)
   (save-buffer)
   (shell-command
